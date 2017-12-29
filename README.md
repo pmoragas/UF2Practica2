@@ -16,8 +16,8 @@ Els events s’han d’implementar de forma asíncrona, de tal manera que la int
 
 ## Ampliacions i millores
 
-··* Permetre fer seleccions no només per país, sinó també per gènere o companyia.
+* Permetre fer seleccions no només per país, sinó també per gènere o companyia.
 
-··* Incloure la possibilitats de cerques obertes per nom, companyia, etc. utilitzant PLINQ.
+* Incloure la possibilitats de cerques obertes per nom, companyia, etc. utilitzant PLINQ.
 
-··* Millores que creieu aportin usabilitat (bloqueig de botons, mostrar informació mentre es fa la cerca, etc.)
+* Millores que creieu aportin usabilitat (bloqueig de botons, mostrar informació mentre es fa la cerca, etc.)
