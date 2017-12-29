@@ -32,7 +32,7 @@ Per llegir el JSON el més senzill és utilitzar el paquet de Newtonsoft que pod
 
 Per calcular el temps que es triga a fer una operació:
 
-``csharp
+```csharp
 
 Stopwatch clock = new Stopwacth();
 
