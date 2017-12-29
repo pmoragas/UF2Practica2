@@ -28,6 +28,8 @@ Per llegir el JSON el més senzill és utilitzar el paquet de Newtonsoft que pod
 
 [newtonsoft](http://www.newtonsoft.com/json/help/html/SerializingJSON.htm)
 
+[JSON C# fácil](https://www.campusmvp.es/recursos/post/Como-usar-JSON-en-NET-facilmente.aspx)
+
 [JSON con C#](http://javierescobar.net/como-implementar-json-con-csharp/)
 
 Per calcular el temps que es triga a fer una operació:
@@ -43,6 +45,7 @@ clock.Restart();
 clock.Stop();
 
 textBox1.Text = clock.Elapsed.TotalSeconds.ToString() + "segons";
+```
 
 ## Lliurament
 
