@@ -21,3 +21,31 @@ Els events s’han d’implementar de forma asíncrona, de tal manera que la int
 * Incloure la possibilitats de cerques obertes per nom, companyia, etc. utilitzant PLINQ.
 
 * Millores que creieu aportin usabilitat (bloqueig de botons, mostrar informació mentre es fa la cerca, etc.)
+
+## Orientacions
+
+Per llegir el JSON el més senzill és utilitzar el paquet de Newtonsoft que podeu descarregar amb nuget, tot i que també existeixen alternatives natives del framework. Aquí teniu una sèrie de links on teniu informació de com utilitzar-lo:
+
+[newtonsoft](http://www.newtonsoft.com/json/help/html/SerializingJSON.htm)
+
+[JSON con C#](http://javierescobar.net/como-implementar-json-con-csharp/)
+
+Per calcular el temps que es triga a fer una operació:
+
+``csharp
+
+Stopwatch clock = new Stopwacth();
+
+clock.Restart();
+
+// Aquí aniria el codi de la crida al mètode
+
+clock.Stop();
+
+textBox1.Text = clock.Elapsed.TotalSeconds.ToString() + "segons";
+
+## Lliurament
+
+Caldrà lliurar el codi, fent presentació i defensa davant del professorat, a més de penjar el projecte .ZIP al moodle.
+
+
