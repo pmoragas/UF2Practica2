@@ -19,4 +19,6 @@ namespace Projecte2
             Application.Run(new Form1());
         }
     }
+
+
 }
