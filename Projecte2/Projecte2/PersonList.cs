@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,13 +24,30 @@ namespace Projecte2
             }
         }
 
-        public void getPeopleByCounry(string country)
+        public void getPeopleByCountry(string country)
         {
-            using (StreamReader reader = new StreamReader(jsonPath))
+            Parallel.ForEach(array, i =>
             {
-                var json = reader.ReadToEnd();
-                PersonList = JsonConvert.DeserializeObject<List<Person>>(json);
+                if (IsPrime(i))
+                {
+                    primes[j] = i;
+                    j++;
+                }
             }
+        }
+
+        public List<String> getCountries()
+        {
+            List<string> countryList = new List<string>();
+            foreach (Person person in PersonList)
+            {
+                countryList.Add(person.country);
+            }
+
+            countryList.Sort();
+
+
+            return countryList;
         }
 
 
