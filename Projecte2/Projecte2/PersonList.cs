@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -77,6 +78,8 @@ namespace Projecte2
                 index++;
             }
 
+            Thread.Sleep(5000);
+
             return resultList;
         }
 
@@ -85,8 +88,12 @@ namespace Projecte2
             List<Person> peopleList = new List<Person>();
             List<ListViewItem> resultList = new List<ListViewItem>();
 
+            var options = new ParallelOptions()
+            {
+                MaxDegreeOfParallelism = Environment.ProcessorCount
+            };
 
-            Parallel.For(0, PersonList.Count, i =>
+            Parallel.For(0, PersonList.Count, options, i =>
             {
                 Parallel.For(0, countryList.Count, j =>
                  {
@@ -118,6 +125,7 @@ namespace Projecte2
                 index++;
             }
 
+            Thread.Sleep(5000);
 
             return resultList;
         }
@@ -127,6 +135,10 @@ namespace Projecte2
             List<Person> peopleList = new List<Person>();
             List<ListViewItem> resultList = new List<ListViewItem>();
 
+            var options = new ParallelOptions()
+            {
+                MaxDegreeOfParallelism = Environment.ProcessorCount
+            };
 
             Parallel.ForEach(PersonList, person =>
             {
@@ -160,6 +172,7 @@ namespace Projecte2
                 index++;
             }
 
+            Thread.Sleep(5000);
 
             return resultList;
         }
