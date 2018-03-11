@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -41,10 +42,52 @@ namespace Projecte2
             return resultList;
         }
 
-        public List<ListViewItem> getPeopleByCountryList(List<string> countryList)
+        public List<String> getAllDistinctCountries()
+        {
+            List<string> countryList = new List<string>();
+
+            foreach (Person person in PersonList)
+            {
+                countryList.Add(person.country);
+            }
+
+            countryList.Sort();
+
+            return countryList.Distinct().ToList();
+        }
+
+        public List<String> getAllDistinctGenders()
+        {
+            List<string> genderList = new List<string>();
+
+            foreach (Person person in PersonList)
+            {
+                genderList.Add(person.gender);
+            }
+
+            genderList.Sort();
+
+            return genderList.Distinct().ToList();
+        }
+
+        public List<String> getAllDistinctCompanies()
+        {
+            List<string> companiesList = new List<string>();
+
+            foreach (Person person in PersonList)
+            {
+                companiesList.Add(person.company);
+            }
+
+            companiesList.Sort();
+
+            return companiesList.Distinct().ToList();
+        }
+
+
+        public List<Person> getPeopleByCountryList(List<string> countryList)
         {
             List<Person> peopleList = new List<Person>();
-            List<ListViewItem> resultList = new List<ListViewItem>();
 
             foreach (Person person in PersonList)
             {
@@ -58,160 +101,291 @@ namespace Projecte2
                 
             }
 
-
-            int index = 1;
-
-            String indexstr;
-            String name;
-            String surname;
-            String email;
-
-            foreach (Person person in peopleList)
-            {
-                indexstr = index.ToString();
-                name = person.Name;
-                surname = person.Surname;
-                email = person.email;
-
-                resultList.Add(new ListViewItem(new string[] { indexstr, name, surname, email }));
-
-                index++;
-            }
-
-            Thread.Sleep(5000);
-
-            return resultList;
+        
+            return peopleList;
         }
 
-        public List<ListViewItem> getPeopleByCountryListParallelFor(List<string> countryList)
-        {
-            List<Person> peopleList = new List<Person>();
-            List<ListViewItem> resultList = new List<ListViewItem>();
-
-            var options = new ParallelOptions()
-            {
-                MaxDegreeOfParallelism = Environment.ProcessorCount
-            };
-
-            Parallel.For(0, PersonList.Count, options, i =>
-            {
-                Parallel.For(0, countryList.Count, j =>
-                 {
-                     if (PersonList[i].country == countryList[j])
-                     {
-                         peopleList.Add(PersonList[i]);
-                     }
-                 });
-
-            });
-            
-
-            int index = 1;
-
-            String indexstr;
-            String name;
-            String surname;
-            String email;
-
-            foreach (Person person in peopleList)
-            {
-                indexstr = index.ToString();
-                name = person.Name;
-                surname = person.Surname;
-                email = person.email;
-
-                resultList.Add(new ListViewItem(new string[] { indexstr, name, surname, email }));
-
-                index++;
-            }
-
-            Thread.Sleep(5000);
-
-            return resultList;
-        }
-
-        public List<ListViewItem> getPeopleByCountryListParallelForeach(List<string> countryList)
-        {
-            List<Person> peopleList = new List<Person>();
-            List<ListViewItem> resultList = new List<ListViewItem>();
-
-            var options = new ParallelOptions()
-            {
-                MaxDegreeOfParallelism = Environment.ProcessorCount
-            };
-
-            Parallel.ForEach(PersonList, person =>
-            {
-                Parallel.ForEach(countryList, country =>
-                {
-                    if (person.country == country)
-                    {
-                        peopleList.Add(person);
-                    }
-                });
-
-            });
-
-
-            int index = 1;
-
-            String indexstr;
-            String name;
-            String surname;
-            String email;
-
-            foreach (Person person in peopleList)
-            {
-                indexstr = index.ToString();
-                name = person.Name;
-                surname = person.Surname;
-                email = person.email;
-
-                resultList.Add(new ListViewItem(new string[] { indexstr, name, surname, email }));
-
-                index++;
-            }
-
-            Thread.Sleep(5000);
-
-            return resultList;
-        }
-
-        public async Task<List<Person>> getPeopleByCountryListAsync(List<string> countryList)
+        public List<Person> getPeopleByGenderListPersonList(List<string> genderList, List<Person> personList)
         {
             List<Person> resultList = new List<Person>();
 
-            foreach (Person person in PersonList)
+            foreach (Person person in personList)
             {
-                foreach (String country in countryList)
+                foreach (String gender in genderList)
                 {
-                    if (person.country == country)
+                    if (person.gender == gender)
                     {
                         resultList.Add(person);
                     }
                 }
 
             }
-            System.Threading.Thread.Sleep(5000);
 
-            return await Task.Run(() => resultList);
+
+            return resultList;
         }
 
-        public List<String> getAllDistinctCountries()
+        public List<Person> getPeopleByCompanyListPersonList(List<string> companyList, List<Person> personList)
         {
-            List<string> countryList = new List<string>();
-            List<string> countryListDistinct = new List<string>();
+            List<Person> resultList = new List<Person>();
 
-            foreach (Person person in PersonList)
+            foreach (Person person in personList)
             {
-                countryList.Add(person.country);
+                foreach (String company in companyList)
+                {
+                    if (person.company == company)
+                    {
+                        resultList.Add(person);
+                    }
+                }
+
             }
 
-            countryList.Sort();
 
-            return countryList.Distinct().ToList();
+            return resultList;
         }
 
+        public List<Person> getPeopleByCountryListParallelFor(List<string> countryList)
+        {
+            List<Person> resultList = new List<Person>();
+            var exceptions = new ConcurrentQueue<Exception>();
+
+            var options = new ParallelOptions()
+            {
+                MaxDegreeOfParallelism = Environment.ProcessorCount / 2
+            };
+
+            for(int i = 0; i < PersonList.Count; i++)
+            {
+                Parallel.For(0, countryList.Count, options, j =>
+                  {
+                      try
+                      {
+                          if (PersonList[i].country == countryList[j])
+                          {
+                              resultList.Add(PersonList[i]);
+                          }
+                      }
+                      catch (NullReferenceException)
+                      {
+
+                          Console.WriteLine("Error processing parallel search");
+                      }
+
+                  });
+
+            }
+
+            return resultList;
+        }
+
+
+        public List<Person> getPeopleByGenderListPersonListParallelFor(List<string> genderList, List<Person> personList)
+        {
+            List<Person> resultList = new List<Person>();
+
+            var options = new ParallelOptions()
+            {
+                MaxDegreeOfParallelism = Environment.ProcessorCount / 2
+            };
+
+            for(int i = 0; i<personList.Count; i++ )
+            {
+                Parallel.For(0, genderList.Count, options, j =>
+                {
+                    try
+                    {
+                        if (personList[i].gender == genderList[j])
+                        {
+                            resultList.Add(personList[i]);
+                        }
+                    }
+                    catch (NullReferenceException)
+                    {
+
+                        Console.WriteLine("Error processing parallel search");
+                    }
+
+                });
+
+            }
+
+            return resultList;
+        }
+
+        public List<Person> getPeopleByCompanyListPersonListParallelFor(List<string> companyList, List<Person> personList)
+        {
+            List<Person> resultList = new List<Person>();
+
+            var options = new ParallelOptions()
+            {
+                MaxDegreeOfParallelism = Environment.ProcessorCount / 2
+            };
+
+            for(int i = 0; i < personList.Count; i++ )
+             {
+                Parallel.For(0, companyList.Count, options, j =>
+               {
+                   try
+                   {
+                       if (personList[i].company == companyList[j])
+                       {
+                           resultList.Add(personList[i]);
+                       }
+                   }
+                   catch (NullReferenceException)
+                   {
+
+                       Console.WriteLine("Error processing parallel search");
+                   }
+
+               });
+
+            }
+
+            return resultList;
+        }
+
+
+
+
+        public List<Person> getPeopleByCountryListParallelForeach(List<string> countryList)
+        {
+            List<Person> resultList = new List<Person>();
+
+
+            var options = new ParallelOptions()
+            {
+                MaxDegreeOfParallelism = Environment.ProcessorCount / 2
+            };
+
+            
+                foreach(Person person in PersonList)
+                {
+                    Parallel.ForEach(countryList, country =>
+                    {
+                        try
+                        {
+                            if (person.country == country)
+                            {
+                                resultList.Add(person);
+                            }
+                        }
+                        catch (NullReferenceException)
+                        {
+
+                            Console.WriteLine("Error processing parallel search");
+                        }
+                        
+                    });
+
+                }
+                      
+            
+            return resultList;
+        }
+
+        public List<Person> getPeopleByGenderListPersonListParallelForeach(List<string> genderList, List<Person> personList)
+        {
+            List<Person> resultList = new List<Person>();
+ 
+
+            var options = new ParallelOptions()
+            {
+                MaxDegreeOfParallelism = Environment.ProcessorCount / 2
+            };
+
+            
+                foreach(Person person in personList)
+                {
+                    Parallel.ForEach(genderList, gender =>
+                    {
+                        try
+                        {
+                            if (person.gender == gender)
+                            {
+                                resultList.Add(person);
+                            }
+                        }
+                        catch (NullReferenceException)
+                        {
+
+                            Console.WriteLine("Error processing parallel search");
+                        }
+                        
+                    });
+
+                }
+            
+            
+            return resultList;
+        }
+
+        public List<Person> getPeopleByCompanyListPersonListParallelForeach(List<string> companyList, List<Person> personList)
+        {
+            List<Person> resultList = new List<Person>();
+
+
+            var options = new ParallelOptions()
+            {
+                MaxDegreeOfParallelism = Environment.ProcessorCount / 2
+            };
+
+            
+                foreach(Person person in personList)
+                {
+                    Parallel.ForEach(companyList, company =>
+                    {
+                        try
+                        {
+                            if (person.company == company)
+                            {
+                                resultList.Add(person);
+                            }
+                        }
+                        catch (NullReferenceException)
+                        {
+
+                            Console.WriteLine("Error processing parallel search");
+                        }
+                        
+                    });
+
+                }
+            
+            
+
+
+            return resultList;
+        }
+
+        private List<ListViewItem> composeResultsToListViewItems(List<ListViewItem> resultList, List<Person> list)
+        {
+            int index = 1;
+
+            String indexstr;
+            String name;
+            String surname;
+            String email;
+
+            foreach (Person person in list)
+            {
+                indexstr = index.ToString();
+                name = person.Name;
+                surname = person.Surname;
+                email = person.email;
+
+                resultList.Add(new ListViewItem(new string[] { indexstr, name, surname, email }));
+
+                index++;
+            }
+
+            return resultList;
+
+        }
+
+        
+        
 
 
         public void writeListToConsole(List<string> list)

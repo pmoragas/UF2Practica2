@@ -30,6 +30,17 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lstBxCompany1 = new System.Windows.Forms.ListBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lstBxGender1 = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lstBxCountry3 = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lstBxCountry2 = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lstBxCountry1 = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSearch1 = new System.Windows.Forms.Button();
@@ -40,10 +51,6 @@
             this.Surname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblTime1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lstBxCountry2 = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnSearch2 = new System.Windows.Forms.Button();
             this.lstVwResult2 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -55,13 +62,18 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label7 = new System.Windows.Forms.Label();
-            this.lstBxCountry3 = new System.Windows.Forms.ListBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.btnSearch3 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.lblTime2 = new System.Windows.Forms.Label();
             this.lblTime3 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lstBxCompany2 = new System.Windows.Forms.ListBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lstBxGender2 = new System.Windows.Forms.ListBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lstBxCompany3 = new System.Windows.Forms.ListBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lstBxGender3 = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +89,18 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.lstBxCompany3);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.lstBxGender3);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.lstBxCompany2);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.lstBxGender2);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.lstBxCompany1);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.lstBxGender1);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.lstBxCountry3);
             this.panel1.Controls.Add(this.label8);
@@ -90,6 +114,105 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1259, 180);
             this.panel1.TabIndex = 7;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(269, 31);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 13);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Company";
+            // 
+            // lstBxCompany1
+            // 
+            this.lstBxCompany1.FormattingEnabled = true;
+            this.lstBxCompany1.Location = new System.Drawing.Point(272, 47);
+            this.lstBxCompany1.Name = "lstBxCompany1";
+            this.lstBxCompany1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstBxCompany1.Size = new System.Drawing.Size(120, 95);
+            this.lstBxCompany1.TabIndex = 20;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(143, 31);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Gender";
+            // 
+            // lstBxGender1
+            // 
+            this.lstBxGender1.FormattingEnabled = true;
+            this.lstBxGender1.Location = new System.Drawing.Point(146, 47);
+            this.lstBxGender1.Name = "lstBxGender1";
+            this.lstBxGender1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstBxGender1.Size = new System.Drawing.Size(120, 43);
+            this.lstBxGender1.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(834, 5);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(154, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "ASYNC PARALLEL FOREACH";
+            // 
+            // lstBxCountry3
+            // 
+            this.lstBxCountry3.FormattingEnabled = true;
+            this.lstBxCountry3.Location = new System.Drawing.Point(837, 47);
+            this.lstBxCountry3.Name = "lstBxCountry3";
+            this.lstBxCountry3.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstBxCountry3.Size = new System.Drawing.Size(120, 95);
+            this.lstBxCountry3.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(834, 31);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Country";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(414, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "ASYNC PARALLEL FOR";
+            // 
+            // lstBxCountry2
+            // 
+            this.lstBxCountry2.FormattingEnabled = true;
+            this.lstBxCountry2.Location = new System.Drawing.Point(417, 46);
+            this.lstBxCountry2.Name = "lstBxCountry2";
+            this.lstBxCountry2.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstBxCountry2.Size = new System.Drawing.Size(120, 95);
+            this.lstBxCountry2.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(414, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Country";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "ASYNC";
             // 
             // lstBxCountry1
             // 
@@ -172,42 +295,6 @@
             this.lblTime1.Name = "lblTime1";
             this.lblTime1.Size = new System.Drawing.Size(0, 13);
             this.lblTime1.TabIndex = 14;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "ASYNC";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(414, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "ASYNC PARALLEL FOR";
-            // 
-            // lstBxCountry2
-            // 
-            this.lstBxCountry2.FormattingEnabled = true;
-            this.lstBxCountry2.Location = new System.Drawing.Point(417, 46);
-            this.lstBxCountry2.Name = "lstBxCountry2";
-            this.lstBxCountry2.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstBxCountry2.Size = new System.Drawing.Size(120, 95);
-            this.lstBxCountry2.TabIndex = 13;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(414, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Country";
             // 
             // btnSearch2
             // 
@@ -293,33 +380,6 @@
             this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader8.Width = 166;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(834, 5);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(154, 13);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "ASYNC PARALLEL FOREACH";
-            // 
-            // lstBxCountry3
-            // 
-            this.lstBxCountry3.FormattingEnabled = true;
-            this.lstBxCountry3.Location = new System.Drawing.Point(837, 47);
-            this.lstBxCountry3.Name = "lstBxCountry3";
-            this.lstBxCountry3.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstBxCountry3.Size = new System.Drawing.Size(120, 95);
-            this.lstBxCountry3.TabIndex = 16;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(834, 31);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Country";
-            // 
             // btnSearch3
             // 
             this.btnSearch3.Location = new System.Drawing.Point(892, 231);
@@ -353,6 +413,78 @@
             this.lblTime3.Name = "lblTime3";
             this.lblTime3.Size = new System.Drawing.Size(0, 13);
             this.lblTime3.TabIndex = 21;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(666, 30);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(51, 13);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "Company";
+            // 
+            // lstBxCompany2
+            // 
+            this.lstBxCompany2.FormattingEnabled = true;
+            this.lstBxCompany2.Location = new System.Drawing.Point(669, 46);
+            this.lstBxCompany2.Name = "lstBxCompany2";
+            this.lstBxCompany2.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstBxCompany2.Size = new System.Drawing.Size(120, 95);
+            this.lstBxCompany2.TabIndex = 24;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(540, 30);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(42, 13);
+            this.label13.TabIndex = 23;
+            this.label13.Text = "Gender";
+            // 
+            // lstBxGender2
+            // 
+            this.lstBxGender2.FormattingEnabled = true;
+            this.lstBxGender2.Location = new System.Drawing.Point(543, 46);
+            this.lstBxGender2.Name = "lstBxGender2";
+            this.lstBxGender2.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstBxGender2.Size = new System.Drawing.Size(120, 43);
+            this.lstBxGender2.TabIndex = 22;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1086, 31);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(51, 13);
+            this.label14.TabIndex = 29;
+            this.label14.Text = "Company";
+            // 
+            // lstBxCompany3
+            // 
+            this.lstBxCompany3.FormattingEnabled = true;
+            this.lstBxCompany3.Location = new System.Drawing.Point(1089, 47);
+            this.lstBxCompany3.Name = "lstBxCompany3";
+            this.lstBxCompany3.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstBxCompany3.Size = new System.Drawing.Size(120, 95);
+            this.lstBxCompany3.TabIndex = 28;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(960, 31);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(42, 13);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "Gender";
+            // 
+            // lstBxGender3
+            // 
+            this.lstBxGender3.FormattingEnabled = true;
+            this.lstBxGender3.Location = new System.Drawing.Point(963, 47);
+            this.lstBxGender3.Name = "lstBxGender3";
+            this.lstBxGender3.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstBxGender3.Size = new System.Drawing.Size(120, 43);
+            this.lstBxGender3.TabIndex = 26;
             // 
             // Form1
             // 
@@ -417,6 +549,18 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblTime2;
         private System.Windows.Forms.Label lblTime3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ListBox lstBxCompany1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListBox lstBxGender1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ListBox lstBxCompany3;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ListBox lstBxGender3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ListBox lstBxCompany2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ListBox lstBxGender2;
     }
 }
 
